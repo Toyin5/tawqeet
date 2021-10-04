@@ -1,0 +1,16 @@
+@import url("http://fonts.googleapis.com/earlyaccess/amiri.css");
+@import url("http://fonts.googleapis.com/css2?family=Montserrat:wght@100&display=swap");
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    height: 20vh;
+    font-size: 7vw;
+    color: white;
+    text-transform: uppercase;
+    font-family: "Montserrat", sans-serif;
+    width: 100%;
+}
+
+

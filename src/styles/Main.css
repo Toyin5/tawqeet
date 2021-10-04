@@ -1,0 +1,31 @@
+.main{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    width: 60%;
+    margin: 0 20em 0 15em;
+}
+.header_div, .solah_div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+.header_div{
+    width: 100%;
+}
+.solah_div{
+    height: 30px;
+    width: 100%;
+    background-color: #000;
+    color: cornflowerblue;
+    margin: .5em;
+    padding-top: 20px;
+    border-radius: solid  yellowgreen 2px;
+    font-size: medium;
+}
+.current_day, .current_date, .current_time{
+    color: cornflowerblue;
+    background-color: #000;
+    margin-top: 5px;
+}

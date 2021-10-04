@@ -1,0 +1,9 @@
+.footer{
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    font-family: "Roboto", sans-serif;
+    margin-top: 1em;
+}
