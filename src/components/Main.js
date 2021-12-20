@@ -1,23 +1,22 @@
 import axios from 'axios';
 import {Container} from "@material-ui/core"
 import { useEffect, useState } from "react";
+import {addTime} from "../times";
 import "../styles/Main.css"
-function Main({ip}) {
+function Main() {
     const [dataApi, setDataApi] = useState({
         solah: JSON.parse(localStorage.getItem("solah")) || {},
-        dates: JSON.parse(localStorage.getItem("dates")) || {},
-        city:""
+        dates: JSON.parse(localStorage.getItem("dates")) || {}
     })
-    const solahAPi = async(ip) => {
+    const solahAPi = async() => {
         try {
-        const data = await axios.get(`https://api.pray.zone/v2/times/today.json?ip=${ip}`)
+        const data = await axios.get(`https://api.pray.zone/v2/times/today.json?city=${JSON.parse(localStorage.getItem('city'))}`)
           setDataApi(() => {
             localStorage.setItem('solah', JSON.stringify(data.data.results.datetime[0].times))
             localStorage.setItem('dates', JSON.stringify(data.data.results.datetime[0].date))
               return {
                   solah: data.data.results.datetime[0].times,
                   dates: data.data.results.datetime[0].date,
-                  city:""
               }
           })
         console.log(data)
@@ -29,8 +28,8 @@ function Main({ip}) {
     
         
     useEffect(() => {
-        solahAPi(ip);
-    },[ip])
+        solahAPi();
+    })
     let date = new Date();
     let day = `${date.toString().split(" ")[0]}`;
 
@@ -45,7 +44,7 @@ function Main({ip}) {
         <Container>
         <div className="main">
             <div className="current_date">
-                <p>{dataApi.dates.hijri}</p>
+                <p>{dataApi.dates.gregorian}</p>
             </div>
             <div className="current_day">
                 <p>{day}</p>
@@ -54,34 +53,34 @@ function Main({ip}) {
                 <p>{time}</p>
             </div>
             <div className="header_div">
-                <p>Iqamah</p>
-                <p>------</p>
                 <p>Adhan</p>
+                <p className="city">{JSON.parse(localStorage.getItem('city'))}</p>
+                <p>Iqamah</p>
             </div>
             <div className="solah_div">
                 <p>{dataApi.solah.Fajr}</p>
                 <p>Fajr</p>
-                <p>----</p>
+                <p>{addTime(dataApi.solah.Fajr,"00:20").slice(0,-3)}</p>
             </div>
             <div className="solah_div">
                 <p>{dataApi.solah.Dhuhr}</p>
                 <p>Dhuhr</p>
-                <p>04:28</p>
+                <p>{addTime(dataApi.solah.Dhuhr, "00:20").slice(0,-3)}</p>
             </div>
             <div className="solah_div">
                 <p>{dataApi.solah.Asr}</p>
                 <p>Asr</p>
-                <p>04:28</p>
+                <p>{addTime(dataApi.solah.Asr, "00:20").slice(0,-3)}</p>
             </div>
             <div className="solah_div">
                 <p>{dataApi.solah.Maghrib}</p>
                 <p>Magrib</p>
-                <p>04:28</p>
+                <p>{addTime(dataApi.solah.Maghrib, "00:20").slice(0,-3)}</p>
             </div>
             <div className="solah_div">
                 <p>{dataApi.solah.Isha}</p>
                 <p>Isha</p>
-                <p>04:28</p>
+                <p>{addTime(dataApi.solah.Isha, "00:20").slice(0,-3)}</p>
             </div>
         </div>
         </Container>

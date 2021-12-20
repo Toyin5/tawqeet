@@ -1,9 +1,16 @@
 .footer{
-    display: flex;
     width: 100%;
+    display: flex;
     align-items: center;
     justify-content: center;
-    height: 100%;
     font-family: "Roboto", sans-serif;
-    margin-top: 1em;
+    margin-top: 4em;
+}
+
+@media only screen and (max-width: 768px) {
+    .footer{
+        margin-left: auto;
+        margin-right: auto;
+        color: turquoise;
+    }
 }

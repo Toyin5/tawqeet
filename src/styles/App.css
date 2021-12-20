@@ -6,11 +6,9 @@
 body {
   font-family: "Amiri", serif;
   color: white;
-  min-height: 100vh;
 }
 
 .app{
-  height: 100vh;
   background-color: #282c34;
   color: whitesmoke;
 }
