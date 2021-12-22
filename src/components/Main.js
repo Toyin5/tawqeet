@@ -10,7 +10,7 @@ function Main() {
     })
     const solahAPi = async() => {
         try {
-        const data = await axios.get(`https://api.pray.zone/v2/times/today.json?city=${JSON.parse(localStorage.getItem('city'))}`)
+        const data = await axios.get(`https://api.pray.zone/v2/times/today.json?ip=${JSON.parse(localStorage.getItem('ip'))}`)
           setDataApi(() => {
             localStorage.setItem('solah', JSON.stringify(data.data.results.datetime[0].times))
             localStorage.setItem('dates', JSON.stringify(data.data.results.datetime[0].date))
@@ -29,7 +29,7 @@ function Main() {
         
     useEffect(() => {
         solahAPi();
-    })
+    }, [])
     let date = new Date();
     let day = `${date.toString().split(" ")[0]}`;
 

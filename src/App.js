@@ -29,7 +29,7 @@ function App() {
   console.log(ip)
   useEffect(() => {
     ipGetter(addr);
-  }, [addr])
+  }, [])
 
   return (
     <div className="app">
