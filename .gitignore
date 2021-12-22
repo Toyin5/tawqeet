@@ -4,8 +4,12 @@
 /node_modules
 /.pnp
 .pnp.js
+
+
+#when coding it
 .times.js
 .localStorage.js
+.lighthouse.js
 
 # testing
 /coverage
