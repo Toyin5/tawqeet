@@ -75,7 +75,7 @@ function Main() {
             <div className="solah_div">
                 <p>{dataApi.solah.Maghrib}</p>
                 <p>Magrib</p>
-                <p>{addTime(dataApi.solah.Maghrib, "00:20").slice(0,-3)}</p>
+                <p>{addTime(dataApi.solah.Maghrib, "00:10").slice(0,-3)}</p>
             </div>
             <div className="solah_div">
                 <p>{dataApi.solah.Isha}</p>
